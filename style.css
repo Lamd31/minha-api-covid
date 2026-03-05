@@ -3,7 +3,8 @@
     right: 1px;
     display: inline-flex;
     justify-content: center;
-    padding: 2px 5px;
+    margin: 0px;
+    padding:  5px;
     border-radius: 5px;
     background-color: rgb(7, 255, 7);
 }
