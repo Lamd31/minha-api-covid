@@ -1,10 +1,57 @@
+body{
+    background-color: rgb(128, 200, 241);
+}
 #statusApi{
-    position: absolute;
-    right: 1px;
+    position: fixed;
+     top: 10px;       /* Distância do topo da tela  */ 
+    right: 10px;
     display: inline-flex;
     justify-content: center;
     margin: 0px;
-    padding:  5px;
-    border-radius: 5px;
-    background-color: rgb(7, 255, 7);
+    padding:  2px;
+    color: rgb(2, 109, 2);
+    background-color: #e6fffa;
+    border: 1px solid #38a169;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+} 
+
+#comparacao{
+    margin: 50px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    gap: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 15px;
+    font-size: 30px;
+}
+
+#buscar input, #btnBuscar {
+    padding: 10px 15px;    /* Aumenta o preenchimento interno */
+    font-size: 18px;       /* Tamanho da letra */
+    border-radius: 8px;    /* Bordas mais arredondadas */
+    border: 1px solid #ccc; /* Uma borda mais sutil */
+    width: 250px;          /* Define uma largura padrão para todos ficarem iguais */
+}
+
+
+#resultado{
+    
+    color: red;
+}
+
+@media (max-width: 600px) {
+    #buscar {
+        flex-direction: column;
+        width: 100%;
+    }
+    input, #btnBuscar {
+        width: 100%; /* Ocupa a largura toda no celular */
+    }
 }

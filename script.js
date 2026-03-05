@@ -1,7 +1,6 @@
 const inputEstado1 = document.querySelector("#estado1");
 const inputEstado2 = document.querySelector("#estado2");
 const btnBuscar = document.querySelector("#btnBuscar");
-// const resultado3 = document.querySelector("#resultado3");
 
 let estadoAtual = ""
 let morteAtual = 0
@@ -69,15 +68,6 @@ function encontrarDados2(nomeEstado2){
     })
     
 };
-// encontrarDados1();
-// encontrarDados2();
-
-
-// function mediaEstados(){
-//     if(morteApi1>morteApi2){
-//         resultado1.innerHTML = ``
-//     }
-// };
 
 
 
@@ -91,14 +81,11 @@ function exibirEstado(busca){
 
 function exibirCasos(estado, morte){
     
-    const resultado1 = document.querySelector("#resultado1");
+    const resultado = document.querySelector("#resultado");
     if(morte>morteAtual){
         morteAtual=morte
         estadoAtual=estado
     }    
-    resultado1.innerHTML = `O estado ${estadoAtual} teve ${morteAtual} mortes`
+    resultado.innerHTML = `O estado ${estadoAtual} teve mais mortes, foram ${morteAtual}☠️`
 }
 
-// function exibirCasos2( estadoApi2, morteApi2){
-//     resultado2.innerHTML = `${estadoApi2} ${morteApi2}`
-//
