@@ -3,11 +3,16 @@ const inputEstado2 = document.querySelector("#estado2");
 const btnBuscar = document.querySelector("#btnBuscar");
 // const resultado3 = document.querySelector("#resultado3");
 
+let estadoAtual = ""
+let morteAtual = 0
 
 btnBuscar.addEventListener("click", ()=> {
     const nomeEstado1 = inputEstado1.value.trim();
     const nomeEstado2 = inputEstado2.value.trim();
-    encontrarDados1(nomeEstado1,nomeEstado2); 
+     estadoAtual = ""
+     morteAtual = 0
+    encontrarDados1(nomeEstado1);
+    encontrarDados2(nomeEstado2); 
     
 })
 
@@ -34,8 +39,8 @@ encontrarStatusApi();
 
 
 
-function encontrarDados1(nomeEstado1,nomeEstado2){
-    console.log(nomeEstado1,nomeEstado2)
+function encontrarDados1(nomeEstado1){
+    console.log(nomeEstado1)
     
     fetch(`https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/${nomeEstado1}`)
     .then(resposta => resposta.json())
@@ -47,7 +52,11 @@ function encontrarDados1(nomeEstado1,nomeEstado2){
         exibirCasos(estadoApi1,morteApi1)
     })
     
-    
+    exibirCasos();
+};
+
+function encontrarDados2(nomeEstado2){
+    console.log(nomeEstado2)
     fetch(`https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/${nomeEstado2}`)
     .then(resposta => resposta.json())
     .then(dados => {
@@ -56,16 +65,12 @@ function encontrarDados1(nomeEstado1,nomeEstado2){
         const morteApi2 = dados.deaths
         // console.log(estadoApi2,morteApi2)
          exibirCasos(estadoApi2,morteApi2)
+         
     })
-    exibirCasos();
-};
-
-// function encontrarDados2(){
     
-// };
+};
 // encontrarDados1();
 // encontrarDados2();
-
 
 
 // function mediaEstados(){
@@ -83,17 +88,17 @@ function exibirEstado(busca){
     busca==1?    statusApi.innerHTML = `Online` : statusApi.innerHTML =`Offline`
 };
 
-function exibirCasos(estadoApi1, morteApi1){
-    estadoAtual = ""
-    morteAtual = 0
+
+function exibirCasos(estado, morte){
+    
     const resultado1 = document.querySelector("#resultado1");
-    if(morteApi1>morteAtual){
-        morteAtual=morteApi1 
-        estadoAtual=estadoApi1
+    if(morte>morteAtual){
+        morteAtual=morte
+        estadoAtual=estado
     }    
-    resultado1.innerHTML = `O ${estadoAtual} teve ${morteAtual} mortes`
+    resultado1.innerHTML = `O estado ${estadoAtual} teve ${morteAtual} mortes`
 }
 
 // function exibirCasos2( estadoApi2, morteApi2){
 //     resultado2.innerHTML = `${estadoApi2} ${morteApi2}`
-// }
+//
